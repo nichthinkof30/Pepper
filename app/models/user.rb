@@ -11,6 +11,10 @@ class User < ActiveRecord::Base
 
   def self.authenticate(email, password)
     user = User.find_by(email: email)
+    puts user.inspect
+    puts "234567891287654"
+
+    puts "99999999999"
     user && user.authenticate(password)
   end
 
@@ -43,7 +47,7 @@ class User < ActiveRecord::Base
   end
 
   def website
-    return nil if self[:website].nil? || self[:website].blank?  
+    return nil if self[:website].nil? || self[:website].blank?
     return self[:website] if self[:website].include?('http' || 'https')
     return "http://#{self[:website]}"
   end

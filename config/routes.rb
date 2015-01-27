@@ -3,7 +3,7 @@ Pepper::Application.routes.draw do
   root 'decks#index'
 
   get 'dashboards/example' => 'dashboards#example'
-  
+
   get 'sign_in' => 'sessions#new'
   get 'sign_up' => 'users#new'
   get 'users/:id/delete' => 'users#delete', as: 'user_delete'
@@ -18,7 +18,7 @@ Pepper::Application.routes.draw do
 
   get 'dashboard' => 'dashboards#show', as: 'dashboard'
 
-  resources :decks do 
+  resources :decks do
     resources :cards
     resources :card_suggestions
   end
